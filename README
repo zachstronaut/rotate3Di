@@ -23,5 +23,8 @@ under both MIT and GPL licenses, just like jQuery.
 Change Log
 -----------------------------
 
-2010.11.26 - Added to GitHub
+2010.11.26 - Added to GitHub, including updated dependencies to enabled
+             IE9 (Platform Preview 7+) support
+
+2009.03.11 - First release of project as rotate3Di v0.9
 
