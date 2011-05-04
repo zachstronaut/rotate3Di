@@ -1,8 +1,9 @@
 (function ($) {
     // rotate3Di v0.9 - 2009.03.11 Zachary Johnson www.zachstronaut.com
     // "3D" isometric rotation and animation using CSS3 transformations
-    // currently supported in Safari/WebKit/Chrome, Firefox 3.5+,
-    // IE9 (Platform Preview 7+), and probably Opera.
+    // currently supported in Safari/Chrome/Webkit, Firefox 3.5+, IE 9+,
+    // and Opera 11+. Tested with jQuery 1.3.x through 1.6.
+    
     
     var calcRotate3Di = {
         direction: function (now) {return (now < 0 ? -1 : 1);},
