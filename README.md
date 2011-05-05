@@ -7,7 +7,7 @@ Rotate3Di is a jQuery Effect Plugin that makes it possible to do an isometric 3D
 
 ## Donate to Support this Project
 
-Rotate3Di is, and will always be, a free plugin.  I do spend quite a bit of time answering an increasing number of emails about this project, testing it, and patching bugs.  I'd like to be able to add features and work on supporting other browsers, but I work for myself so I can't always find the time.  Consider buying me a beer through this PayPal donate button, so that I can happily put more time into this project. Thank you!
+Rotate3Di is, and will always be, a free plugin.  I do spend quite a bit of time answering an increasing number of emails about this project, testing it, and patching bugs.  I'd like to be able to add features and work on supporting other browsers, but I work for myself so I can't always find the time.  Consider buying me a beer, so that I can happily put more time into this project. Follow the link and click the PayPal donate button. Thank you!
 
 <http://zachstronaut-local/projects/rotate3di/#donate>
 
