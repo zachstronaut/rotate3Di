@@ -74,7 +74,11 @@
     var proxied = $.fx.prototype.cur;
     $.fx.prototype.cur = function () {
         if(this.prop == 'rotate3Di') {
-            var style = $(this.elem).css(transformProperty);
+            // In jQuery 1.4.3+ calls to css() for transforms return a matrix
+            // rather than the actual string specified by the user... avoid
+            // that behavior and return the string by calling jQuery.style()
+            // directly. This is needed when not using jquery-css-transform
+            var style = $.style(this.elem, transformProperty);
             if (style) {
                 var m = style.match(/, (-?[0-9]+)deg\)/);
                 if (m && m[1]) {
