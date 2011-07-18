@@ -5,6 +5,8 @@
     // and Opera 11+. Tested with jQuery 1.3.x through 1.6.
     
     
+    var transformProperty = Modernizr.prefixed ? Modernizr.prefixed('transform') : 'transform';
+    
     var calcRotate3Di = {
         direction: function (now) {return (now < 0 ? -1 : 1);},
         degrees: function (now) {return (Math.floor(Math.abs(now))) % 360;},
@@ -61,7 +63,7 @@
         // I can get them.
         $(fx.elem).data('rotate3Di.degrees', direction * degrees);
         $(fx.elem).css(
-            'transform',
+            transformProperty,
             'skew(0deg, ' + direction * degrees + 'deg)'
                 + ' scale(' + scale + ', 1)'
         );
@@ -72,7 +74,7 @@
     var proxied = $.fx.prototype.cur;
     $.fx.prototype.cur = function () {
         if(this.prop == 'rotate3Di') {
-            var style = $(this.elem).css('transform');
+            var style = $(this.elem).css(transformProperty);
             if (style) {
                 var m = style.match(/, (-?[0-9]+)deg\)/);
                 if (m && m[1]) {
