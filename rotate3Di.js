@@ -60,11 +60,23 @@
         // with my flipbox demo... I am storing degrees someplace where I know
         // I can get them.
         $(fx.elem).data('rotate3Di.degrees', direction * degrees);
-        $(fx.elem).css(
-            'transform',
-            'skew(0deg, ' + direction * degrees + 'deg)'
-                + ' scale(' + scale + ', 1)'
-        );
+        
+        // depending on if we set an option to rotate around the x axis,
+        // this will either flip on the x axis (top over bottom/bottom over top)
+        // or by default, its y axis (left over right/right over left)
+        if($(fx.elem).data('rotate3Di.axis') == 'x') {
+            $(fx.elem).css(
+                'transform',
+                'skew(' + direction * degrees + 'deg, 0deg)'
+                    + ' scale(1, ' + scale + ')'
+            );
+        } else {
+            $(fx.elem).css(
+                'transform',
+                'skew(0deg, ' + direction * degrees + 'deg)'
+                    + ' scale(' + scale + ', 1)'
+            ); 
+        }
     }
     
     // fx.cur() must be monkey patched because otherwise it would always
@@ -74,7 +86,13 @@
         if(this.prop == 'rotate3Di') {
             var style = $(this.elem).css('transform');
             if (style) {
-                var m = style.match(/, (-?[0-9]+)deg\)/);
+                
+                // make sure we grab the correct degrees value depending on our axis option
+                if($(this.elem).data('rotate3Di.axis') == 'x') {
+                    var m = style.match(/\((-?[0-9]+)deg, /);
+                } else {
+                    var m = style.match(/, (-?[0-9]+)deg\)/);
+                }
                 if (m && m[1]) {
                     return parseInt(m[1]);
                 } else {
@@ -127,6 +145,10 @@
             $(this).data('rotate3Di.flipped', false);
             
             degrees = 0;
+        }
+        
+        if(options.axis) {
+            $(this).data('rotate3Di.axis', options.axis);
         }
         
         var d = $(this).data('rotate3Di.degrees') || 0;
