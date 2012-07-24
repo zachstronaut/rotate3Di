@@ -36,6 +36,8 @@ This code is currently available for use in all personal or commercial projects 
 
 ## Change Log
 
+2012.07.24 - v0.9.1: Firefox 14 / W3C transforms change... skew() replaced with skewY()
+
 2010.11.26 - Added to GitHub, including updated dependencies to enabled IE9 (Platform Preview 7+) support
 
 2009.03.11 - First release of project as rotate3Di v0.9
