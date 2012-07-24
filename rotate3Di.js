@@ -76,7 +76,7 @@
         if(this.prop == 'rotate3Di') {
             var style = $(this.elem).css('transform');
             if (style) {
-                var m = style.match(/, (-?[0-9]+)deg\)/);
+                var m = style.match(/skewY\((-?[0-9]+)deg\)/);
                 if (m && m[1]) {
                     return parseInt(m[1]);
                 } else {
