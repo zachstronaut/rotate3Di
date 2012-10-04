@@ -36,6 +36,8 @@ This code is currently available for use in all personal or commercial projects 
 
 ## Change Log
 
+2012.10.04 - v0.9.2: Mainly a fix for Firefox 16, but... $(el).transform() fetches style string for current transform, which in some browsers is a matrix() statement instead of a set of separate transform functions.  This made it so I couldn't simply grep for skewY().  I was already tracking the current degrees of animation via $(el).data() anyway... so now I just return that rather than parsing from style string.  In future would be good to actually support transforms already set on an element by other code/CSS.
+
 2012.07.24 - v0.9.1: Firefox 14 / W3C transforms change... skew() replaced with skewY()
 
 2010.11.26 - Added to GitHub, including updated dependencies to enabled IE9 (Platform Preview 7+) support

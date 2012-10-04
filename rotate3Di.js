@@ -1,10 +1,10 @@
 (function ($) {
-    // rotate3Di v0.9.1
+    // rotate3Di v0.9.2
     // https://github.com/zachstronaut/rotate3Di
-    // 2012.07.24 - 2009.03.11 Zachary Johnson http://www.zachstronaut.com
+    // 2012.10.04 - 2009.03.11 Zachary Johnson http://www.zachstronaut.com
     // "3D" isometric rotation and animation using CSS3 transformations
     // currently supported in Safari/Chrome/Webkit, Firefox 3.5+, IE 9+,
-    // and Opera 11+. Tested with jQuery 1.3.x through 1.6.
+    // and Opera 11+. Tested with jQuery 1.3.x through 1.7.2.
     
     
     var calcRotate3Di = {
@@ -74,15 +74,7 @@
     var proxied = $.fx.prototype.cur;
     $.fx.prototype.cur = function () {
         if(this.prop == 'rotate3Di') {
-            var style = $(this.elem).css('transform');
-            if (style) {
-                var m = style.match(/skewY\((-?[0-9]+)deg\)/);
-                if (m && m[1]) {
-                    return parseInt(m[1]);
-                } else {
-                    return 0;
-                }
-            }
+            return $(this.elem).data('rotate3Di.degrees') || 0;
         }
         
         return proxied.apply(this, arguments);
